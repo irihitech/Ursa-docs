@@ -1,0 +1,36 @@
+name: Build & Deploy to Aliyun ECS
+
+on:
+  push:
+    branches: [ aliyun-ecs ]
+  pull_request:
+    branches: [ aliyun-ecs ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: Aliyun
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.4
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: 20
+
+      - name: Install npm dependencies
+        run: npm install
+
+      - name: Run build task
+        run: npm run build --if-present
+
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@v5.0.3
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-avzr --delete"
+          SOURCE: "build/"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.REMOTE_TARGET }}
