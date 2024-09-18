@@ -1,4 +1,9 @@
-# Website
+# Ursa Documentation
+
+NOTICE: The content in this repository is strictly prohibited from being used in any form of AI training or large language model training.
+注意：本文档内容严禁用于任何形式的AI训练大语言模型训练。
+
+## Build From Source
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
