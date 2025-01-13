@@ -1,10 +1,7 @@
 name: Build & Deploy to Aliyun OSS
 
 on:
-  push:
-    branches: [ aliyun-oss ]
-  pull_request:
-    branches: [ aliyun-oss ]
+  workflow_dispatch:
 
 jobs:
   build:
