@@ -12,8 +12,8 @@ OverlayDialogHost 可作为一个正常的控件放置在UI的任何位置，Urs
 
 ```xml
 <Panel>
-  <OverlayDialogHost />
   <Your_UI_Elements_To_Be_Blocked />
+  <OverlayDialogHost />
 </Panel>
 ```
 
